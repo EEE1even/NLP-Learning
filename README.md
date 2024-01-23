@@ -9,3 +9,5 @@ nlp双非硕士，很喜欢这个方向也想一直做下去，如果有问题�
 欢迎大家提issues交流和指正错误！
 
 [Transformer](./Transformer_QA/Transformer_QA.md) 的相关问答
+
+[贝叶斯公式](./学习笔记/贝叶斯公式.md)
