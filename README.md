@@ -1,12 +1,6 @@
 # NLP学习仓库
 
-nlp双非硕士，如果有问题欢迎交流。
-
-邮箱：1347597531@qq.com
-
-该仓库会每周更新nlp学习的文档
-
-欢迎大家提issues交流和指正错误！
+该仓库会定期更新nlp相关学习文档
 
 [Transformer_20问](./Learning_Notes/Transformer_QA.md) 
 
