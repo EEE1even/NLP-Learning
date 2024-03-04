@@ -27,7 +27,7 @@ k-means是无监督方法
 
 ## Lasso回归：
 
-罚函数为$\lambda \times （|slope|+ |w_{1}|+|w_2|...）$ 
+罚函数为 $\lambda \times （|slope|+ |w_{1}|+|w_2|...）$ 
 
 > 公式的括号中包含所有的权重变量，斜率和 $w$ 都算是一个等式的变量 
 
@@ -51,7 +51,7 @@ Lasso回归可以除去等式中的无用变量
 
 ## 弹性网回归（Elastic Net Regression）
 
-罚函数$\lambda_1 \times （|slope|+ |w_{1}|+|w_2|...）+\lambda_2 \times （slope^{2}+w_1^{2}+w_2^{2}...）$ 
+罚函数 $\lambda_1 \times （|slope|+ |w_{1}|+|w_2|...）+\lambda_2 \times （slope^{2}+w_1^{2}+w_2^{2}...）$ 
 
 将套索回归和岭回归的罚函数结合
 
