@@ -62,9 +62,9 @@
 2、随机给参数赋值
 
 3、将参数值传到导数中（梯度）
-4、计算步长：$Step\ Size=Slop\times Learning\ Rate$
+4、计算步长： $Step\ Size=Slop\times Learning\ Rate$
 
-5、计算新的参数值：$New\ Parameter=Old\ Parameter - Step\ Size$
+5、计算新的参数值： $New\ Parameter=Old\ Parameter - Step\ Size$
 
 3到5的步骤循环操作直到步长非常小或者达到最大步数
 
@@ -80,7 +80,7 @@ standard normal distribution 标准正态分布
 
 反向传播所计算的偏导数公式不会因为优化参数而改变，公式还是公式，改变的只是参数
 
-softplus激活函数：$log(1+e^x)$ 
+softplus激活函数： $log(1+e^x)$ 
 
  
 
@@ -94,7 +94,7 @@ softplus激活函数：$log(1+e^x)$
 
 **argmax：** 最大值为1，其他都为0
 
-**缺点：**无法用它来优化神经网络中的权重和偏置，因为斜率为0，所以导数为0，无法进行梯度下降
+**缺点： ** 无法用它来优化神经网络中的权重和偏置，因为斜率为0，所以导数为0，无法进行梯度下降
 
 
 
