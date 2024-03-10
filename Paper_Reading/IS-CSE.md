@@ -1,8 +1,6 @@
 # IS-CSE
 
-[Smoothed Contrastive Learning for Unsupervised Sentence Embedding](https://aclanthology.org/2022.coling-1.434.pdf)
-
-
+[Instance Smoothed Contrastive Learning for Unsupervised Sentence Embedding](https://arxiv.org/pdf/2305.07424.pdf)
 
 **以前的方法怎么做？**
 
