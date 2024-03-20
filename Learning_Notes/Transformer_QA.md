@@ -86,22 +86,57 @@
 
 **12、为什么transformer块使用LayerNorm而不是BatchNorm？LayerNorm 在Transformer的位置是哪里？**
 
+* 多头注意力层和激活函数层之间。CV使用BN是认为channel维度的信息对cv方面有重要意义，如果对channel维度也归一化会造成不同通道信息一定的损失。而同理nlp领域认为句子长度不一致，并且各个batch的信息没什么关系，因此只考虑句子内信息的归一化，也就是LN
 
 
 
+**13、简答讲一下BatchNorm技术，以及它的优缺点。**
 
-13、简答讲一下BatchNorm技术，以及它的优缺点。
+* 批归一化是对每一批的数据在进入激活函数前进行归一化，可以提高收敛速度，防止过拟合，防止梯度消失，增加网络对数据的敏感度。
 
-14、简单描述一下Transformer中的前馈神经网络？使用了什么激活函数？相关优缺点？
+  
 
-15、Encoder端和Decoder端是如何进行交互的？（在这里可以问一下关于seq2seq的attention知识）
+**14、简单描述一下Transformer中的前馈神经网络？使用了什么激活函数？相关优缺点？**
 
-16、Decoder阶段的多头自注意力和encoder的多头自注意力有什么区别？（为什么需要decoder自注意力需要进行 sequence mask)
+* 输入嵌入-加上位置编码-多个编码器层（每个编码器层包含全连接层，多头注意力层和点式前馈网络层（包含激活函数层））-多个解码器层（每个编码器层包含全连接层，多头注意力层和点式前馈网络层）-全连接层，使用了relu激活函数
 
-17、Transformer的并行化提现在哪个地方？Decoder端可以做并行化吗？
 
-18、简单描述一下wordpiece model 和 byte pair encoding，有实际应用过吗？
 
-19、Transformer训练的时候学习率是如何设定的？Dropout是如何设定的，位置在哪里？Dropout 在测试的需要有什么需要注意的吗？
+**15、Encoder端和Decoder端是如何进行交互的？（在这里可以问一下关于seq2seq的attention知识）**
 
-20、引申一个关于bert问题，bert的mask为何不学习transformer在attention处进行屏蔽score的技巧？
+* 通过转置encoder_ouput的seq_len维与depth维，进行矩阵两次乘法，即q*kT*v输出即可得到target_len维度的输出
+
+
+
+**16、Decoder阶段的多头自注意力和encoder的多头自注意力有什么区别？（为什么需要decoder自注意力需要进行 sequence mask)**
+
+* Decoder有两层mha，encoder有一层mha，Decoder的第二层mha是为了转化输入与输出句长，Decoder的请求q与键k和数值v的倒数第二个维度可以不一样，但是encoder的qkv维度一样。
+
+
+
+**17、Transformer的并行化提现在哪个地方？Decoder端可以做并行化吗？**
+
+* Transformer的并行化主要体现在self-attention模块，在Encoder端Transformer可以并行处理整个序列，并得到整个输入序列经过Encoder端的输出，但是rnn只能从前到后的执行
+* 训练的时候可以，但是交互的时候不可以
+
+
+
+**18、简单描述一下wordpiece model 和 byte pair encoding，有实际应用过吗？**
+
+* 传统词表示方法无法很好的处理未知或罕见的词汇（OOV问题）
+* 传统词tokenization方法不利于模型学习词缀之间的关系”
+* BPE（字节对编码）或二元编码是一种简单的数据压缩形式，其中最常见的一对连续字节数据被替换为该数据中不存在的字节。后期使用时需要一个替换表来重建原始数据。
+  * 优点：可以有效地平衡词汇表大小和步数（编码句子所需的token次数）。
+  * 缺点：基于贪婪和确定的符号替换，不能提供带概率的多个分片结果。
+
+
+
+**19、Transformer训练的时候学习率是如何设定的？Dropout是如何设定的，位置在哪里？Dropout 在测试的需要有什么需要注意的吗？**
+
+* LN是为了解决梯度消失的问题，dropout是为了解决过拟合的问题。在embedding后面加LN有利于embedding matrix的收敛。
+
+
+
+**20、引申一个关于bert问题，bert的mask为何不学习transformer在attention处进行屏蔽score的技巧？**
+
+* BERT和transformer的目标不一致，bert是语言的预训练模型，需要充分考虑上下文的关系，而transformer主要考虑句子中第i个元素与前i-1个元素的关系。
