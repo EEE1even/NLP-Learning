@@ -21,7 +21,7 @@ huggingface发布的关于Bert的文档可以作为一个参考：[huggingface_b
 
 > **个人见解：** 接近真实空间之后，模型就更容易对masked的单词进行预测。简单的举个例子 ***{猫吃鱼；狗吃肉} --> {猫 [Mask] 鱼；狗 [Mask] 肉}*** ：将预测过程想象成一个套圈游戏，最开始的分布可能是猫和鱼靠的很近，但是"吃"离得远，我们的圈无法套到这个"吃"。但是在进行训练后，这些词的分布变得均匀，使得我们可以套到正确（接近真实）的东西。
 
-![bert-picture](./src/bert-picture)
+![bert-picture](./src/bert-picture.png)
 
 
 
@@ -202,7 +202,7 @@ plt.colorbar()
 plt.show()
 ```
 
-![bert-attention](./src/bert-attention)
+![bert-attention](./src/bert-attention.png)
 
 上述的热力图可以体现词与词之间的注意力机制，颜色越浅关注度越高
 
