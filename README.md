@@ -22,4 +22,4 @@
 git clone https://github.com/EEE1even/NLP-Learning.git
 ```
 
-也欢迎访问我的csdn博客：https://blog.csdn.net/weixin_48435461?spm=1000.2115.3001.5343，相关文档会同步更新
+也欢迎访问我的[csdn博客](https://blog.csdn.net/weixin_48435461?spm=1000.2115.3001.5343)，相关文档会同步更新
